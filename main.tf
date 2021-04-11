@@ -10,7 +10,7 @@
 # CREATE AUTO-SCALING POLICY
 # CREATE AUTO-SCALING GROUP
 
-/
+
 #CREATE A FILE SYSTEM#####
 resource "aws_efs_file_system" "efs" {
   encrypted = true
