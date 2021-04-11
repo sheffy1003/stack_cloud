@@ -10,13 +10,13 @@
 # CREATE AUTO-SCALING POLICY
 # CREATE AUTO-SCALING GROUP
 
-
+/
 #CREATE A FILE SYSTEM#####
 resource "aws_efs_file_system" "efs" {
   encrypted = true
   throughput_mode= "bursting"
   tags = {
-    Name = "stack2-file-sys"
+    Name = "stack-terraform"
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_instance" "web" {
   key_name       = var.PATH_TO_PRIVATE_KEY
   vpc_security_group_ids = [var.SECURITY_GROUP]
   tags = {
-    Name = "wordpress-server"
+    Name = "wpinst-terraformserver"
   }
 }
 
