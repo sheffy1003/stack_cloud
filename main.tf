@@ -103,7 +103,7 @@ resource "aws_iam_instance_profile" "S3profile" {
 
 #CREATE LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
-  name          = "ASG_STACKTEST_config"
+  name          = "ASG_TERRAFORM_config"
   image_id      = var.AMIS["us-east-1"]
   instance_type = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.S3profile.name
