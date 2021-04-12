@@ -16,7 +16,7 @@ resource "aws_efs_file_system" "efs" {
   encrypted = true
   throughput_mode= "bursting"
   tags = {
-    Name = "stack-terraform"
+    Name = "terraform-filesystem"
   }
 }
 /*
