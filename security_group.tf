@@ -3,7 +3,7 @@
 #Remember to allow traffic from EC2 INSTANCE group into RDS security group
 
 resource "aws_security_group" "security_grp" {
-  name        = "MYWEBDMZ"
+  name        = "TERRAFORM-WEBDMZ"
   description = "Allow TLS inbound traffic"
   vpc_id = "vpc-3e398443"
 
