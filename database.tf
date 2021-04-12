@@ -1,17 +1,17 @@
 #create RDS database 
 #create RDS instance
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "rds" {
   allocated_storage    = 10
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
-  identifier           = "myfirst-rds-instance"
+  identifier           = "terraform-rds-instance"
   name                 = "wordpress-db"
   username             = "wordpress-user"
   password             = "stackinc"
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
-  vpc_security_group_ids = [ "value" ]
+  vpc_security_group_ids = [aws_security_group.security_grp.id]
 }
 
 #create security group for RDS using port 3306
