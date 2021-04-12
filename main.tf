@@ -19,7 +19,7 @@ resource "aws_efs_file_system" "efs" {
     Name = "stack-terraform"
   }
 }
-
+/*
 #CREATE MOUNT TARGET######
 resource "aws_efs_mount_target" "alpha" {
   file_system_id = aws_efs_file_system.efs.id
@@ -173,7 +173,7 @@ output "mount_target_dns" {
 
 
 
-/*#using provisoner to run scripts on instance from a file
+#using provisoner to run scripts on instance from a file
 resource "null_resources" "web2" {
   provisioner "file" {
     source      = "boot_efs.sh"
@@ -189,7 +189,7 @@ resource "null_resources" "web2" {
 }
 
 
-/*
+
 # using provisioner to run commands on the local operating system(e.g AWS CLI command)
 resource "null_resource" "efs1" {
   provisioner "local-exec" {

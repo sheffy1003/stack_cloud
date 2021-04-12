@@ -31,9 +31,7 @@ pipeline {
                  //sh "terraform apply -auto-approve"
                  sh "terraform apply  -input=false tfplan"
              }
-         }
- 
-          
+         }      
     }
 }
  def getTerraformPath(){
