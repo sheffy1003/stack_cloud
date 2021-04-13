@@ -55,9 +55,9 @@ GRANT ALL PRIVILEGES ON \`stack-wordpress-db3\`.* TO 'wordpress-user'@'localhost
 FLUSH PRIVILEGES;
 show tables;
 EOF
-sudo sed -i 's/database_name_here/stack-wordpress-db3/' /var/www/html/wp-config.php
-sudo sed -i 's/username_here/wordpress-user/' /var/www/html/wp-config.php
-sudo sed -i 's/password_here/stackinc/' /var/www/html/wp-config.php
+sudo sed -i 's/database_name_here/${DB_NAME}/' /var/www/html/wp-config.php
+sudo sed -i 's/username_here/${DB_USER}/' /var/www/html/wp-config.php
+sudo sed -i 's/password_here/${DB_PASSWORD}/' /var/www/html/wp-config.php
 
 ## Allow wordpress to use Permalinks###
 sudo sed -i '151s/None/All/' /etc/httpd/conf/httpd.conf

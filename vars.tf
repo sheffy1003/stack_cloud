@@ -20,10 +20,20 @@ variable "SECURITY_GROUP" {
   default = "sg-090e31495f908415e"
 }
 
+variable "DATABASE_NAME" {}
+
+variable "DATABASE_USER" {}
+
+variable "DATABASE_PASSWORD" {}
 
 variable "PATH_TO_PRIVATE_KEY" {
   default = "MYLAMPKey"
   sensitive = true
+}
+
+variable "directory" {
+  default = "/var/www/html"
+  
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
