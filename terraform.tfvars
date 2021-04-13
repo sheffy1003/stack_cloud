@@ -1,7 +1,6 @@
 AWS_ACCESS_KEY="AKIAQYCZNCWJURQSJMXJ"
 AWS_SECRET_KEY="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"
 AWS_REGION="us-east-1"
-DATABASE_NAME= "stack-wordpress-db3"
-DATABASE_USER= "wordpress-user"
-DATABASE_PASSWORD= "stackinc"
-
+DATABASE_NAME="wordpressdb"
+DATABASE_USER="wordpress-user"
+DATABASE_PASSWORD="stackinc"
