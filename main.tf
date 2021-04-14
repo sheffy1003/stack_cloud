@@ -85,7 +85,7 @@ resource "aws_autoscaling_group" "firstgrp" {
       ]
   tag {
     key                 = "Name"
-    value               = "ASG-terra-inst"
+    value               = "ASG-terra-instance"
     propagate_at_launch = true
   }
   depends_on = [aws_efs_mount_target.alpha]
