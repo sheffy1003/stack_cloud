@@ -1,12 +1,12 @@
 #!/bin/bash
-yum update -y
+sudo yum update -y
 sudo yum install -y nfs-utils
 FILE_SYSTEM_ID=${efs_id}
 sudo mkdir -p ${MOUNT_POINT}
 sudo chown ec2-user:ec2-user ${MOUNT_POINT}
 echo ${efs_id}.efs.${REGION}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0 >> /etc/fstab
 sudo mount -a -t nfs4
-yum install httpd php php-mysql -y
+sudo yum install httpd php php-mysql -y
 cd /var/www/html
 echo "healthy" > healthy.html
 wget https://wordpress.org/wordpress-5.1.1.tar.gz

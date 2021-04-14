@@ -13,12 +13,12 @@ variable "mysubnet_id" {
     "us-east-1a" = "subnet-b21974ed"
     "us-east-1b" = "subnet-d5dabbb3"
     "us-east-1c" = "subnet-2ca6c90d"
+    "us-east-1d" = "subnet-0f4c7c42"
+    "us-east-1e" = "subnet-ad9b2f9c"
+    "us-east-1f" = "subnet-3c144e32"
   }
 }
 
-variable "SECURITY_GROUP" {
-  default = "sg-090e31495f908415e"
-}
 
 variable "DATABASE_NAME" {}
 
