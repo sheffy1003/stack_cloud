@@ -71,7 +71,7 @@ resource "aws_launch_configuration" "config" {
 
 #CREATE AN AUTO-SCALING GROUP
 resource "aws_autoscaling_group" "firstgrp" {
-  name                 = "ASG_STACKTEST_GRP"
+  name                 = "ASG_STACKTEST_GR0UP"
   launch_configuration = aws_launch_configuration.config.name
   min_size             = 1
   max_size             = 2
