@@ -1,0 +1,45 @@
+/*
+#using provisioner to run scripts on instance from a file
+resource "null_resources" "web2" {
+  provisioner "file" {
+    source      = "boot_efs.sh"
+    destination = "/tmp/boot_efs.sh"
+  }
+  #using provisioner with inline arguments to execute scripts remotely on instance
+  provisioner "remote-exec" {
+    inline = [
+      "chmod 755 /tmp/boot_efs.sh",
+      "/tmp/script.sh",
+    ]
+  }
+}
+
+
+
+# using provisioner to run commands on the local operating system(e.g AWS CLI command)
+resource "null_resource" "efs1" {
+  provisioner "local-exec" {
+    command ="aws efs create-file-system --performance-mode generalPurpose --throughput-mode bursting --encrypted --tags Key=Name,Value=stack-file-system2 --profile admin_sheriff"
+  }
+}
+*/
+
+
+sudo fdisk /dev/xvdc <<EOT
+n
+P
+1
+2048
+16777215
+w
+EOT
+sudo fdisk /dev/xvdd <<EOT
+n
+P
+1
+2048
+16777215
+w
+EOT
+
+
