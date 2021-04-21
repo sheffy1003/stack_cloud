@@ -3,3 +3,4 @@
 terraform.tfstate
 terraform.tfstate.backup
 wordpresskey.pem
+S3_backend
