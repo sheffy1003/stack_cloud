@@ -5,7 +5,7 @@
 resource "aws_security_group" "security_grp" {
   name        = "TERRAFORM-WEBDMZ"
   description = "Allow TLS inbound traffic"
-  vpc_id = "vpc-3e398443"
+
 
   ingress {
     description = "HTTP"
@@ -49,7 +49,7 @@ resource "aws_security_group" "security_grp" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "stackgroup"
+    Name = "securegroup"
   }
 }
 

@@ -1,7 +1,5 @@
-terraform.tfstate.backup
-terraform.tfstate
+.terraform
 .terraform.lock.hcl
-.terraform.lock.hcl868210007
-.terraform/*
-.terraform.lock.hcl555315207
-test
+terraform.tfstate
+terraform.tfstate.backup
+wordpresskey.pem
