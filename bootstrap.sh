@@ -34,9 +34,9 @@ cd /var/www/html
 wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 mkdir phpMyAdmin && tar -xvzf phpMyAdmin-latest-all-languages.tar.gz -C phpMyAdmin --strip-components 1
 rm phpMyAdmin-latest-all-languages.tar.gz
-aws s3 cp s3://stackwpsheriff1/wordpress_app.tar /var/www/html/
-tar -xvf wordpress_app.tar -C /var/www/html
-#aws s3 cp s3://stackwpsheriff /var/www/html --recursive
+#aws s3 cp s3://stackwpsheriff2/wordpress_app.tar.gz /var/www/html/
+#tar -xvzf wordpress_app.tar.gz -C /var/www/html --strip-components 1
+aws s3 cp s3://stackwpsheriff /var/www/html --recursive
 
 
 sudo systemctl start mariadb

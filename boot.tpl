@@ -3,12 +3,7 @@
 #MOUNT EC2 INSTANCE TO EFS
 sudo yum update -y
 sudo yum install -y nfs-utils
-FILE_SYSTEM_ID=${efs_id}
-sudo mkdir -p ${MOUNT_POINT}
-sudo chown ec2-user:ec2-user ${MOUNT_POINT}
-echo ${efs_id}.efs.${REGION}.amazonaws.com:/ ${MOUNT_POINT} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0 >> /etc/fstab
-sudo mount -a -t nfs4
-sudo chmod -R 755 ${MOUNT_POINT}
+
 
 #finish installing php, linux and configuring permission
 sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
@@ -40,11 +35,11 @@ sudo chkconfig httpd on
 #####INSTALL WORDPRESS####
 wget https://wordpress.org/wordpress-5.1.1.tar.gz
 tar -xzf wordpress-5.1.1.tar.gz
-cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+cp wp-config-sample.php wp-config.php
 cp -r wordpress/* /var/www/html/
-sudo sed -i 's/database_name_here/${DB_NAME}/' /var/www/html/wp-config.php
-sudo sed -i 's/username_here/${DB_USER}/' /var/www/html/wp-config.php
-sudo sed -i 's/password_here/${DB_PASSWORD}/' /var/www/html/wp-config.php
+sudo sed -i 's/database_name_here/${DB_NAME}/' wp-config.php
+sudo sed -i 's/username_here/${DB_USER}/' wp-config.php
+sudo sed -i 's/password_here/${DB_PASSWORD}/' wp-config.php
 
 ###CREATE WORDPRESS DATABASE AND USER#
 export DEBIAN_FRONTEND="noninteractive"
