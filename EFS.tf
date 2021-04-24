@@ -49,3 +49,4 @@ resource "aws_efs_mount_target" "alpha6" {
   subnet_id      = var.mysubnet_id["us-east-1f"]
   security_groups=[aws_security_group.security_grp.id]
 }
+
