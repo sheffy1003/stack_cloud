@@ -21,7 +21,7 @@ variable "mysubnet_id" {
 variable "ebs_name" {
   default = {
     ebs_1 = "/dev/sdb"
-    ebs_2 = "/dev/sdc"
+    ebs_2 = "/dev/sde"
     ebs_3 = "/dev/sdd"
   } 
 }
