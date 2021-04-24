@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#MOUNT EC2 INSTANCE TO EFS
+#MOUNT INSTANCE TO EFS
 sudo yum update -y
 sudo yum install -y nfs-utils
 FILE_SYSTEM_ID=${efs_id}
