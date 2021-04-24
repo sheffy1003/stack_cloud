@@ -5,7 +5,6 @@
 # CREATE AN EC2 INSTANCE AND ATTACH INSTANCE PROFILE
 # RUN A BOOTSTRAP SCRIPT TO DEPLOY WORDPRESS APPLICATION ON AN EC2 INSTANCE
 # CREATE LAUNCH CONFIGURATION
-# CREATE AUTO-SCALING POLICY
 # CREATE AUTO-SCALING GROUP
 
 
@@ -41,7 +40,7 @@ resource "aws_instance" "web" {
   }
 }
 
-/*
+
 #CREATE LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
   name          = "ASG_TERRAFORM_config"
@@ -107,7 +106,7 @@ resource "aws_autoscaling_policy" "policy" {
     target_value = 40.0
   }
 }
-*/
+
 
 
 
