@@ -13,7 +13,7 @@ variable "mysubnet_id" {
     "us-east-1a" = "subnet-2280f17d"
     "us-east-1b" = "subnet-73aade15"
     "us-east-1c" = "subnet-76126057"
-    "us-east-1d" = "subnet-0f4c7c42"
+    "us-east-1d" = "subnet-00898d4d"
     "us-east-1e" = "subnet-aefe459f"
     "us-east-1f" = "subnet-93c0ee9d"
   }
