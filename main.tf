@@ -30,7 +30,7 @@ resource "aws_instance" "web" {
     aws_efs_mount_target.alpha,
     aws_efs_mount_target.alpha2,
     aws_efs_mount_target.alpha3,
-    aws_efs_mount_target.alpha4,
+    #aws_efs_mount_target.alpha4,
     aws_efs_mount_target.alpha5,
     aws_efs_mount_target.alpha6,
     #aws_db_instance.rds
@@ -62,7 +62,7 @@ resource "aws_launch_configuration" "config" {
     aws_efs_mount_target.alpha,
     aws_efs_mount_target.alpha2,
     aws_efs_mount_target.alpha3,
-    aws_efs_mount_target.alpha4,
+    #aws_efs_mount_target.alpha4,
     aws_efs_mount_target.alpha5,
     aws_efs_mount_target.alpha6,
     #aws_db_instance.rds

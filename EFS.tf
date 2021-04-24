@@ -28,14 +28,14 @@ resource "aws_efs_mount_target" "alpha3" {
   subnet_id      = var.mysubnet_id["us-east-1c"]
   security_groups=[aws_security_group.security_grp.id]
 }
-
+/*
 #CREATE MOUNT TARGET 4 ######
 resource "aws_efs_mount_target" "alpha4" {
   file_system_id = aws_efs_file_system.efs.id
   subnet_id      = var.mysubnet_id["us-east-1d"]
   security_groups=[aws_security_group.security_grp.id]
 }
-
+*/
 #CREATE MOUNT TARGET 5 ######
 resource "aws_efs_mount_target" "alpha5" {
   file_system_id = aws_efs_file_system.efs.id
