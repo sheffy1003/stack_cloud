@@ -2,7 +2,7 @@
 # CREATE AN INSTANCE PROFILE AND ATTACH ROLE
 # CREATE AN IAM ROLE FOR EC2 INSTANCE
 resource "aws_iam_role" "S3role" {
-  name = "S3_TERRAFORM_ACCESS_ROLE"
+  name = "S3_TERRAFORM_ACCESS_ROLE1"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -24,7 +24,7 @@ resource "aws_iam_role" "S3role" {
 
 #CREATE S3 FULL ACCESS POLICY
 resource "aws_iam_policy" "policy" {
-  name        = "s3-access-policy"
+  name        = "s3-access-policy1"
   description = "Grants access to S3 resources"
   policy      = jsonencode({
     "Version": "2012-10-17",
@@ -50,6 +50,6 @@ resource "aws_iam_role_policy_attachment" "attach" {
 #CREATE AN INSTANCE PROFILE
 #ATTACH ROLE TO PROFILE
 resource "aws_iam_instance_profile" "S3profile" {
-  name  = "MY_S3_profile"
+  name  = "MY_S3_profile1"
   role = aws_iam_role.S3role.name
 }

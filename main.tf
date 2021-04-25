@@ -36,14 +36,14 @@ resource "aws_instance" "web" {
     #aws_db_instance.rds
     ] 
   tags = {
-    Name = "WORDPRESS-SERVER"
+    Name = "WORDPRESS-SERVER1"
   }
 }
 
 
 #CREATE LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
-  name          = "ASG_TERRAFORM_config"
+  name          = "ASG_TERRAFORM_config1"
   image_id      = var.AMIS["us-east-1"]
   instance_type = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.S3profile.name
@@ -71,7 +71,7 @@ resource "aws_launch_configuration" "config" {
 
 #CREATE AN AUTO-SCALING GROUP
 resource "aws_autoscaling_group" "firstgrp" {
-  name                 = "ASG_STACKTEST_GR0UP"
+  name                 = "ASG_STACKTEST_GR0UP1"
   launch_configuration = aws_launch_configuration.config.name
   min_size             = 1
   max_size             = 1
@@ -85,7 +85,7 @@ resource "aws_autoscaling_group" "firstgrp" {
       ]
   tag {
     key                 = "Name"
-    value               = "ASG-terra-instance"
+    value               = "ASG-terra-instance1"
     propagate_at_launch = true
   }
   depends_on = [aws_efs_mount_target.alpha]
@@ -93,7 +93,7 @@ resource "aws_autoscaling_group" "firstgrp" {
 
 #CREATE AUTO-SCALING POLICY
 resource "aws_autoscaling_policy" "policy" {
-  name                   = "ASG_STACKTEST_POLICY"
+  name                   = "ASG_STACKTEST_POLICY1"
   policy_type            = "TargetTrackingScaling"
   adjustment_type        = "ChangeInCapacity"
   estimated_instance_warmup = 30 
