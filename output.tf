@@ -1,5 +1,5 @@
 
-#DISPLAY INSTANCE PUBLIC IP ADDRESS
+#DISPLAY PUBLIC IP ADDRESS
 output "public_ip_address" {
   value = aws_instance.web.public_ip
 }
