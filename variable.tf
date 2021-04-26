@@ -47,7 +47,7 @@ variable "directory" {
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "wordpresskey.pub"
+  default = "terra-key.pub"
 }
 
 variable "AMIS" {

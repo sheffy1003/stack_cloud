@@ -2,7 +2,7 @@
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
-wordpresskey.pem
+terra-key.pub
 S3_backend
 terraform.tfvars
 device_name.txt
