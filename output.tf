@@ -1,9 +1,9 @@
-
+/*
 #DISPLAY PUBLIC IP ADDRESS
 output "public_ip_address" {
   value = aws_instance.web.public_ip
 }
-
+*/
 
 #DISPLAY FILE SYSTEM ID
 output "FILE_SYSTEM_ID" {

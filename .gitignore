@@ -1,7 +1,6 @@
-.terraform
+terraform.tfvars
 .terraform.lock.hcl
+test.tf
 terraform.tfstate
 terraform.tfstate.backup
-wordpresskey.pem
-S3_backend
-terraform.tfvars
+.terraform/

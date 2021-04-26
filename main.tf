@@ -7,7 +7,7 @@
 # CREATE LAUNCH CONFIGURATION
 # CREATE AUTO-SCALING GROUP
 
-
+/*
 #CREATE EC2 INSTANCE
 resource "aws_instance" "web" {
   #count = 2
@@ -30,7 +30,7 @@ resource "aws_instance" "web" {
     aws_efs_mount_target.alpha,
     aws_efs_mount_target.alpha2,
     aws_efs_mount_target.alpha3,
-    #aws_efs_mount_target.alpha4,
+    aws_efs_mount_target.alpha4,
     aws_efs_mount_target.alpha5,
     aws_efs_mount_target.alpha6,
     #aws_db_instance.rds
@@ -40,7 +40,7 @@ resource "aws_instance" "web" {
   }
 }
 
-
+*/
 #CREATE LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
   name          = "ASG_TERRAFORM_config1"
@@ -48,10 +48,10 @@ resource "aws_launch_configuration" "config" {
   instance_type = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.S3profile.name
   security_groups =[aws_security_group.security_grp.id]
-  key_name      = var.PATH_TO_PRIVATE_KEY
+  key_name      = aws_key_pair.key.key_name
   user_data      = templatefile("boot.tpl", {
-    #efs_id      = aws_efs_file_system.efs.id,
-    #REGION      = var.AWS_REGION,
+    efs_id      = aws_efs_file_system.efs.id,
+    REGION      = var.AWS_REGION,
     DB_NAME     = "stack-wordpress-db3",
     DB_USER     = "wordpress-user",
     DB_PASSWORD = "stackinc",
@@ -62,7 +62,7 @@ resource "aws_launch_configuration" "config" {
     aws_efs_mount_target.alpha,
     aws_efs_mount_target.alpha2,
     aws_efs_mount_target.alpha3,
-    #aws_efs_mount_target.alpha4,
+    aws_efs_mount_target.alpha4,
     aws_efs_mount_target.alpha5,
     aws_efs_mount_target.alpha6,
     #aws_db_instance.rds
@@ -107,6 +107,10 @@ resource "aws_autoscaling_policy" "policy" {
   }
 }
 
-
+#Create Key pair
+resource "aws_key_pair" "key" {
+  key_name   = "myec2key"
+  public_key = file("terraform_key.pub")
+}
 
 
