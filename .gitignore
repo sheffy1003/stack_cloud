@@ -1,0 +1,9 @@
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+wordpresskey.pem
+S3_backend
+terraform.tfvars
+device_name.txt
+.terraform/*
