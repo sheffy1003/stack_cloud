@@ -39,11 +39,6 @@ rm phpMyAdmin-latest-all-languages.tar.gz
 aws s3 cp s3://stackwpsheriff /var/www/html --recursive
 
 
-sudo systemctl start mariadb
-sudo chkconfig httpd on
-sudo chkconfig mariadb on
-sudo systemctl status httpd
-sudo systemctl status mariadb
 
 #####INSTALL WORDPRESS####
 
@@ -65,7 +60,4 @@ find /var/www -type d -exec sudo chmod 2775 {} \;
 find /var/www -type f -exec sudo chmod 0664 {} \;
 sudo systemctl restart httpd
 sudo systemctl enable httpd && sudo systemctl enable mariadb
-sudo systemctl status mariadb
-sudo systemctl start mariadb
-sudo systemctl status httpd
-sudo systemctl start httpd
+
