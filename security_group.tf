@@ -1,6 +1,6 @@
 #create security group for RDS using port 3306
 #reference security group in RDS instance resource
-#Remember to allow traffic from EC2 INSTANCE group into RDS security group
+#Allow traffic from EC2 INSTANCE group into RDS security group
 
 resource "aws_security_group" "security" {
   name        = "TERRAFORM-EBS"
