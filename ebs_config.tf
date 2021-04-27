@@ -1,5 +1,5 @@
 # Create an EC2 instance
-# Create an EBS volumes
+# Create multiple EBS volumes
 # Attach EBS volumes to EC2 instance
 # Attach User data to configure EBS volumes partition.
 
