@@ -38,10 +38,10 @@ variable "directory" {
   default = "/var/www/html"
   
 }
-
+/*
 variable "PATH_TO_PUBLIC_KEY" {
   default = "modules/clixxebs/terra-key.pub"
-}
+}*/
 
 variable "RDS_ENDPOINT"  {}
 

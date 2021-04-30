@@ -9,15 +9,16 @@ resource "aws_instance" "web1" {
   instance_type = "t2.micro"
   subnet_id      = var.mysubnet_id[var.AZ_ZONE]
   vpc_security_group_ids =[aws_security_group.security.id]
-  key_name      = aws_key_pair.key.key_name
+  key_name      = var.PATH_TO_PRIVATE_KEY
+  #key_name      = aws_key_pair.key.key_name
   tags = {
     Name = "EBS_MGT_TERRAFORM"
-  }
+  }/*
   user_data = templatefile("stack_modules/clixxebs/boot_wh.sh",{
     ebs_vol1 = var.ebs_name["ebs_1"],
     ebs_vol2 = var.ebs_name["ebs_2"],
     ebs_vol3 = var.ebs_name["ebs_3"]
-  })
+  })*/
 }
 
 #Create EBS volumes
