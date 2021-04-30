@@ -1,6 +1,8 @@
 terraform.tfvars
 .terraform.lock.hcl
-modules
+modules/
 terraform.tfstate
 terraform.tfstate.backup
 .terraform/
+clixxapp/
+clixxebs/

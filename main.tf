@@ -14,7 +14,7 @@ module "clixxapp" {
 
 }
 
-/*
+
 module "clixxebs" {
     source    = "./modules/clixxebs"
     AWS_REGION = var.AWS_REGION
@@ -32,4 +32,3 @@ module "clixxebs" {
     AWS_ACCESS_KEY=var.AWS_ACCESS_KEY
     
 }
-*/
