@@ -13,7 +13,7 @@ resource "aws_instance" "web1" {
   tags = {
     Name = "EBS_MGT_TERRAFORM"
   }
-  user_data = templatefile("github.com/sheffy1003/stack_cloud.git/clixxebs/boot_wh.sh",{
+  user_data = templatefile("stack_modules/clixxebs/boot_wh.sh",{
     ebs_vol1 = var.ebs_name["ebs_1"],
     ebs_vol2 = var.ebs_name["ebs_2"],
     ebs_vol3 = var.ebs_name["ebs_3"]

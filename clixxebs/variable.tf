@@ -40,7 +40,7 @@ variable "directory" {
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "terra-key.pub"
+  default = "modules/clixxebs/terra-key.pub"
 }
 
 variable "RDS_ENDPOINT"  {}
