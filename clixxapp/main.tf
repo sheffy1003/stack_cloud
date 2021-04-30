@@ -24,7 +24,7 @@ resource "aws_instance" "web" {
     DB_NAME     = aws_db_instance.rds.name,  
     DB_USER     = aws_db_instance.rds.username,
     DB_PASSWORD = aws_db_instance.rds.password,
-    RDS_ENDPOINT= aws_db_instance.rds.endpoint
+    DB_HOST     = aws_db_instance.rds.address
     })
   depends_on = [
     aws_efs_mount_target.alpha,

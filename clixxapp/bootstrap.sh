@@ -45,7 +45,7 @@ cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sudo sed -i 's/database_name_here/${DB_NAME}/' /var/www/html/wp-config.php
 sudo sed -i 's/username_here/${DB_USER}/' /var/www/html/wp-config.php
 sudo sed -i 's/password_here/${DB_PASSWORD}/' /var/www/html/wp-config.php
-sudo sed -i 's/localhost/${RDS_ENDPOINT}/' /var/www/html/wp-config.php
+sudo sed -i 's/localhost/${DB_HOST}/' /var/www/html/wp-config.php
 
 ## Allow wordpress to use Permalinks###
 sudo sed -i '151s/None/All/' /etc/httpd/conf/httpd.conf
@@ -61,6 +61,7 @@ sudo systemctl enable httpd
 
 # UPDATE THE RDS DATABASE
 
-sudo mysql -h ${RDS_ENDPOINT} -D ${DB_NAME} -u${DB_USER} -p${DB_PASSWORD} <<EOF
+sudo mysql -h ${DB_HOST} -D ${DB_NAME} -u${DB_USER} -p${DB_PASSWORD} <<EOF
 UPDATE wp_options SET option_value = "http://`curl http://169.254.169.254/latest/meta-data/public-ipv4`" WHERE option_value LIKE 'http%';
 EOF
+
