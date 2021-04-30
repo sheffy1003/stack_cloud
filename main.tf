@@ -1,4 +1,4 @@
-
+/*
 module "clixxapp" {
     source    = "./modules/clixxapp"
     AWS_REGION = var.AWS_REGION
@@ -14,7 +14,7 @@ module "clixxapp" {
 
 }
 
-
+*/
 module "clixxebs" {
     source    = "github.com/sheffy1003/stack_cloud.git?ref=stack_modules/clixxebs"
     AWS_REGION = var.AWS_REGION
