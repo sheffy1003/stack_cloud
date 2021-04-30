@@ -50,7 +50,7 @@ variable "DATABASE_USER" {}
 variable "DATABASE_PASSWORD" {}
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "clixxebs/terra-key.pub"
+  default = "modules/clixxebs/terra-key.pub"
 }
 
 variable "AMIS" {

@@ -12,11 +12,11 @@ module "clixxapp" {
     AWS_SECRET_KEY=var.AWS_SECRET_KEY
     AWS_ACCESS_KEY=var.AWS_ACCESS_KEY
 
-}
+}*/
 
-*/
+
 module "clixxebs" {
-    source    = "github.com/sheffy1003/stack_cloud.git?ref=stack_modules/clixxebs"
+    source    = source="github.com/sheffy1003/stack_cloud.git//stack_modules?ref=clixxebs"
     AWS_REGION = var.AWS_REGION
     PATH_TO_PRIVATE_KEY=var.PATH_TO_PRIVATE_KEY
     PATH_TO_PUBLIC_KEY=var.PATH_TO_PUBLIC_KEY
@@ -32,3 +32,7 @@ module "clixxebs" {
     AWS_ACCESS_KEY=var.AWS_ACCESS_KEY
     
 }
+
+
+/*
+source="github.com/sheffy1003/stack_cloud.git?ref=stack_modules/clixxebs"*/
