@@ -55,7 +55,7 @@ resource "aws_launch_configuration" "config" {
     DB_NAME     = "stack-wordpress-db3",
     DB_USER     = "wordpress-user",
     DB_PASSWORD = "stackinc",
-    DB_HOST= var.wordpressdblixx_ENDPOINT,
+    DB_HOST= var.DB_HOST,
     #MOUNT_POINT = var.directory 
     })
   depends_on = [
