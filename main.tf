@@ -7,7 +7,7 @@
 # CREATE LAUNCH CONFIGURATION
 # CREATE AUTO-SCALING GROUP
 
-/*
+
 #CREATE EC2 INSTANCE
 resource "aws_instance" "web" {
   #count = 2
@@ -16,15 +16,15 @@ resource "aws_instance" "web" {
   availability_zone="us-east-1d"
   iam_instance_profile = aws_iam_instance_profile.S3profile.name
   vpc_security_group_ids =[aws_security_group.security_grp.id]
-  key_name      = var.PATH_TO_PRIVATE_KEY
+  key_name      = aws_key_pair.key.key_name
   user_data      = templatefile("bootstrap.sh", {
     efs_id      = aws_efs_file_system.efs.id,
     REGION      = var.AWS_REGION,
     MOUNT_POINT = var.directory,
-    DB_NAME     = var.DATABASE_NAME,  
-    DB_USER     = var.DATABASE_USER,
-    DB_PASSWORD = var.DATABASE_PASSWORD,
-    RDS_ENDPOINT= var.RDS_ENDPOINT
+    DB_NAME     = aws_db_instance.wordpressdblixx.name,  
+    DB_USER     = aws_db_instance.wordpressdblixx.username,
+    DB_PASSWORD = aws_db_instance.wordpressdblixx.password,
+    DB_HOST     = aws_db_instance.wordpressdblixx.address
     })
  depends_on = [
     aws_efs_mount_target.alpha,
@@ -33,14 +33,14 @@ resource "aws_instance" "web" {
     aws_efs_mount_target.alpha4,
     aws_efs_mount_target.alpha5,
     aws_efs_mount_target.alpha6,
-    #aws_db_instance.rds
+    aws_db_instance.wordpressdblixx
     ] 
   tags = {
-    Name = "WORDPRESS-SERVER1"
+    Name = "CLIXXAPP-SERVER"
   }
 }
 
-*/
+/*
 #CREATE LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
   name          = "ASG_TERRAFORM_config1"
@@ -55,7 +55,7 @@ resource "aws_launch_configuration" "config" {
     DB_NAME     = "stack-wordpress-db3",
     DB_USER     = "wordpress-user",
     DB_PASSWORD = "stackinc",
-    #RDS_ENDPOINT= var.RDS_ENDPOINT,
+    DB_HOST= var.wordpressdblixx_ENDPOINT,
     #MOUNT_POINT = var.directory 
     })
   depends_on = [
@@ -65,7 +65,7 @@ resource "aws_launch_configuration" "config" {
     aws_efs_mount_target.alpha4,
     aws_efs_mount_target.alpha5,
     aws_efs_mount_target.alpha6,
-    #aws_db_instance.rds
+    aws_db_instance.wordpressdblixx
     ] 
 }
 
@@ -106,11 +106,11 @@ resource "aws_autoscaling_policy" "policy" {
     target_value = 40.0
   }
 }
-
+*/
 #Create Key pair
 resource "aws_key_pair" "key" {
-  key_name   = "myec2key"
-  public_key = file("terraform_key.pub")
+  key_name   = "myterrakey"
+  public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
 

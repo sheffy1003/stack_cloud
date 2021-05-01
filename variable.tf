@@ -27,7 +27,7 @@ variable "ebs_name" {
 variable "AZ_ZONE" {
   default = "us-east-1a"
 }
-variable "RDS_ENDPOINT"  {}
+variable "DB_HOST"  {}
 
 variable "DATABASE_NAME" {}
 
@@ -46,7 +46,7 @@ variable "directory" {
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+  default = "terra-key.pub"
 }
 
 variable "AMIS" {

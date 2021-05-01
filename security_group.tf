@@ -3,7 +3,7 @@
 #Remember to allow traffic from EC2 INSTANCE group into RDS security group
 
 resource "aws_security_group" "security_grp" {
-  name        = "TERRAFORM-DMZ2"
+  name        = "TERRAFORM-DMZ"
   description = "Allow TLS inbound traffic"
 
 
@@ -51,5 +51,15 @@ resource "aws_security_group" "security_grp" {
   tags = {
     Name = "securegroup"
   }
+}
+
+# This rule allows ec2 instance to connect to rds_security_group
+resource "aws_security_group_rule" "MYSQL_AURORA" {
+  type              = "ingress"
+  from_port         = 3306
+  to_port           = 3306
+  protocol          = "tcp"
+  security_group_id = "sg-04eac2561c497c2d2"
+  source_security_group_id=aws_security_group.security_grp.id
 }
 

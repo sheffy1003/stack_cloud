@@ -20,9 +20,12 @@ sudo usermod -a -G apache ec2-user
 sudo chown -R ec2-user:apache /var/www
 sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
 find /var/www -type f -exec sudo chmod 0664 {} \;
+sudo systemctl start mariadb
 #sudo mysql_secure_installation
+sudo systemctl enable mariadb
 sudo yum install php-mbstring -y
 sudo yum install php-xml -y
+sudo systemctl restart httpd
 sudo systemctl restart php-fpm
 
 
@@ -31,19 +34,28 @@ cd /var/www/html
 wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 mkdir phpMyAdmin && tar -xvzf phpMyAdmin-latest-all-languages.tar.gz -C phpMyAdmin --strip-components 1
 rm phpMyAdmin-latest-all-languages.tar.gz
+#aws s3 cp s3://stackwpsheriff2/wordpress_app.tar.gz /var/www/html/
+#tar -xvzf wordpress_app.tar.gz -C /var/www/html --strip-components 1
+aws s3 cp s3://stackwpsheriff /var/www/html --recursive
 
-#CLONE WORDPRESS APPLICATION
-sudo yum install git -y
-git clone https://github.com/stackitgit/CliXX_Retail_Repository.git
-cp -r CliXX_Retail_Repository/* /var/www/html
 
-#####CONFIGURE WORDPRESS CONFIG FILE####
+
+#####INSTALL WORDPRESS####
 
 cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+#cp -r wordpress/* /var/www/html/
 sudo sed -i 's/database_name_here/${DB_NAME}/' /var/www/html/wp-config.php
 sudo sed -i 's/username_here/${DB_USER}/' /var/www/html/wp-config.php
 sudo sed -i 's/password_here/${DB_PASSWORD}/' /var/www/html/wp-config.php
-sudo sed -i 's/localhost/${DB_HOST}/' /var/www/html/wp-config.php
+sudo sed -i 's/localhost/${RDS_ENDPOINT}/' /var/www/html/wp-config.php
+
+# UPDATE THE RDS DATABASE
+
+#mysql -h ${RDS_ENDPOINT} ${DB_USER} <<EOF
+#${DB_PASSWORD}
+#UPDATE wp_options SET option_value = "http://`curl http://169.254.169.254/latest/meta-data/public-ipv4`" WHERE option_value LIKE 'http%';
+#EOF
+
 
 ## Allow wordpress to use Permalinks###
 sudo sed -i '151s/None/All/' /etc/httpd/conf/httpd.conf
@@ -55,11 +67,8 @@ sudo chmod 2775 /var/www
 find /var/www -type d -exec sudo chmod 2775 {} \;
 find /var/www -type f -exec sudo chmod 0664 {} \;
 sudo systemctl restart httpd
-sudo systemctl enable httpd
+sudo systemctl enable httpd && sudo systemctl enable mariadb
 
-# UPDATE THE RDS DATABASE
 
-sudo mysql -h ${DB_HOST} -D ${DB_NAME} -u${DB_USER} -p${DB_PASSWORD} <<EOF
-UPDATE wp_options SET option_value = "http://`curl http://169.254.169.254/latest/meta-data/public-ipv4`" WHERE option_value LIKE 'http%';
-EOF
+
 
