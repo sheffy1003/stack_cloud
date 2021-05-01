@@ -41,7 +41,7 @@ resource "aws_instance" "web" {
 }
 
 /*
-#CREATE LAUNCH CONFIGURATION
+#  LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
   name          = "ASG_TERRAFORM_config1"
   image_id      = var.AMIS["us-east-1"]
