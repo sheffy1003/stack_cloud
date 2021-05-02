@@ -1,4 +1,4 @@
-
+# module for clixxapp
 module "clixxapp" {
     source    = "./clixxapp"
     AWS_REGION = var.AWS_REGION
