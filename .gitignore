@@ -1,0 +1,8 @@
+terraform.tfvars
+.terraform.lock.hcl
+.terraform.lock.hcl099475359
+.terraform.lock.hcl278218131
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+modules/
