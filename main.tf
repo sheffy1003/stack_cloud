@@ -30,8 +30,8 @@ resource "aws_launch_configuration" "config" {
     REGION      = var.AWS_REGION,
     MOUNT_POINT = var.directory,
     DB_NAME     = var.DATABASE_NAME,  
-    DB_USER     = var.DATABASE_USER,
-    DB_PASSWORD = var.DATABASE_PASSWORD,
+    DB_USER     = local.db_creds.username,
+    DB_PASSWORD = local.db_creds.password,
     DB_HOST     = aws_db_instance.wordpressdblixx.address,
     LB_DNS      = aws_lb.alb.dns_name
     })
@@ -123,3 +123,16 @@ resource "aws_key_pair" "key" {
   public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
+/*
+data "aws_secretsmanager_secret_version" "creds1" {
+  # Fill in the name you gave to your secret
+  secret_id = "creds"
+}
+
+
+locals {
+  db_creds1 = jsondecode(
+    data.aws_secretsmanager_secret_version.creds1.secret_string
+  )
+}
+*/

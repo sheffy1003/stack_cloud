@@ -61,7 +61,7 @@ resource "aws_nat_gateway" "natgw" {
   }
 }
 
-#associate private route table with main-private subnet
+#associate public route table with main-public subnet
 resource "aws_route_table_association" "attach_pub" {
   for_each = {
     "sub1" = aws_subnet.main1["pubsub1"].id
@@ -86,26 +86,5 @@ resource "aws_route_table_association" "attach_private" {
   route_table_id = aws_route_table.main_private.id
 }
 
-#restore RDS DataBase from snapshot
-
-resource "aws_db_instance" "wordpressdblixx" {
-  instance_class       = "db.t2.micro"
-  snapshot_identifier  = "clixxdbsnap"
-  identifier           = "wordpressdbclixx"
-  username             = var.DATABASE_USER
-  password             = var.DATABASE_PASSWORD
-  db_subnet_group_name = aws_db_subnet_group.subnetgroup.name
-  skip_final_snapshot  = true
-  vpc_security_group_ids = [aws_security_group.rdsgroup.id]
-}
-
-# Create DB Subnet Group
-resource "aws_db_subnet_group" "subnetgroup" {
-  name       = "terra_db_group"
-  subnet_ids = [aws_subnet.main1["pvsubrds1"].id, aws_subnet.main2["pvsubrds2"].id]
-  tags = {
-    Name = "db_group"
-  }
-}
 
 
