@@ -29,14 +29,14 @@ pipeline {
              steps {
                  //sh "returnStatus: true, script: 'terraform workspace new dev'"
                  //sh "terraform apply -auto-approve"
-                //sh "terraform apply  -input=false tfplan"
-                 sh "terraform destroy -auto-approve"
+                sh "terraform apply  -input=false tfplan"
+                 //sh "terraform destroy -auto-approve"
              }
          }      
     }
 }
  def getTerraformPath(){
-        def tfHome= tool name: 'terraform -14', type: 'terraform'
+        def tfHome= tool name: 'terraform-14', type: 'terraform'
         return tfHome
     }
  
