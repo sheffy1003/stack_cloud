@@ -86,6 +86,7 @@ resource "aws_route_table_association" "attach_private" {
   route_table_id = aws_route_table.main_private.id
 }
 
+/*
 data "aws_route53_zone" "selected" {
   name         = "sheffcloud.com"
   private_zone = true
@@ -101,5 +102,6 @@ resource "aws_route53_record" "www" {
     evaluate_target_health = true
   }
 }
+*/
 
 
