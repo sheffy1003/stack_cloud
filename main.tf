@@ -1,4 +1,4 @@
-#create Bastion Server
+#create Bastion Server host
 resource "aws_instance" "web" {
   ami      = var.AMIS["us-east-1"]
   instance_type = "t2.micro"
