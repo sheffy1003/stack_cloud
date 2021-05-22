@@ -45,9 +45,9 @@ resource "aws_launch_configuration" "config" {
 resource "aws_autoscaling_group" "firstgrp" {
   name                 = "ASG_STACKTEST_GR0UP1"
   launch_configuration = aws_launch_configuration.config.name
-  min_size             = 1
-  max_size             = 1
-  desired_capacity = 1
+  min_size             = 2
+  max_size             = 3
+  desired_capacity = 2
   health_check_grace_period = 30
   health_check_type         = "EC2"
   target_group_arns    = [aws_lb_target_group.target.arn]
