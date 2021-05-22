@@ -86,22 +86,26 @@ resource "aws_route_table_association" "attach_private" {
   route_table_id = aws_route_table.main_private.id
 }
 
-/*
+#Route 53 DNS 
+# data source for route53 hosted zone
 data "aws_route53_zone" "selected" {
+  #zone_id      = "Z09826981WX4BYLYECE52"
   name         = "sheffcloud.com"
   private_zone = true
+  vpc_id       = aws_vpc.main.id
 }
 
+# Create A record with simple routing policy for DNS
 resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.selected.zone_id
   name    = "www.${data.aws_route53_zone.selected.name}"
   type    = "A"
   alias {
     name                   = aws_lb.alb.dns_name
-    zone_id                = data.aws_route53_zone.selected.zone_id
+    zone_id                = aws_lb.alb.zone_id
     evaluate_target_health = true
   }
 }
-*/
+
 
 
