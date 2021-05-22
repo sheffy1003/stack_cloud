@@ -7,6 +7,11 @@ variable "AWS_REGION" {
   default = "us-east-1"
 }
 
+variable "ZONE_ID" {
+  type =  string
+  default = "Z09826981WX4BYLYECE52"
+}
+
 variable "mysubnet_id" {
   type = map(string)
   default = {

@@ -89,8 +89,7 @@ resource "aws_route_table_association" "attach_private" {
 #Route 53 DNS 
 # data source for route53 hosted zone
 data "aws_route53_zone" "selected" {
-  #zone_id      = "Z09826981WX4BYLYECE52"
-  name         = "sheffcloud.com"
+  zone_id      = var.ZONE_ID
   private_zone = true
   vpc_id       = aws_vpc.main.id
 }
