@@ -21,7 +21,7 @@ resource "aws_instance" "web" {
 resource "aws_launch_configuration" "config" {
   name          = "ASG_TERRAFORM_config1"
   #image_id      = var.AMIS["us-east-1"]
-  image_id=data.aws_ami.stack.id
+  image_id= ${data.aws_ami.stack.id}
   instance_type = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.S3profile.name
   security_groups =[aws_security_group.appgroup.id]
@@ -64,7 +64,7 @@ resource "aws_autoscaling_group" "firstgrp" {
   depends_on = [aws_efs_mount_target.alpha,aws_efs_mount_target.alpha2]
 }
 
-#
+# data source for packer ami
 data "aws_ami" "stack" {
   owners     = ["self"]
   filter {
