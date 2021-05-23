@@ -24,8 +24,6 @@ data "aws_ami" "stack" {
     values = ["ami-stack-1.0"]
   }
 }
-#within your ASG, replace image_id with below:
-#image_id=data.aws_ami.stack.id
 
 #CREATE CLIXX LAUNCH CONFIGURATION
 resource "aws_launch_configuration" "config" {
