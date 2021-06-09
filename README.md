@@ -1,7 +1,7 @@
 # stack_cloud
 stackIT cloud project
 
-This Project was carried out to design and implement a well archictected custom VPC for a PHP based application in line with AWS best practices. The build, testing and deployment of the application is triggered by webhook in github repository. Jenkins CI/CD pipeline created for this project is then integrated with Terraform to execute the code.
+This Project was carried out to design and implement a well archictected custom VPC for a PHP based application in line with AWS best practices. The build, testing and deployment of the application is triggered by webhook in github repository. The entire infrastructure is deployed using a Jenkins CI/CD pipeline which is integrated with Terraform and github repo.
 
 Some of the resources deployed in this VPC project include:
 1. Application Load Balancer: To manage traffic going to autoscale group.
@@ -15,4 +15,4 @@ Some of the resources deployed in this VPC project include:
 9. DB Subnet Group
 10. Internet Gateway
 
-Note: For data security: the terraform state file and aws credentials is not pushed to the repo directly.
+Note: For data security and protection: the terraform state file and AWS credentials is not pushed to the repo directly.
