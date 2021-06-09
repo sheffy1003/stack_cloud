@@ -15,4 +15,4 @@ Some of the resources deployed in this VPC project include:
 9. DB Subnet Group
 10. Internet Gateway
 
-Note: For data security and protection: the terraform state file and AWS credentials is not pushed to the repo directly.
+Note: For data security and protection: the terraform state file and AWS credentials (terraform.tfvars) is not pushed to the repo directly.
