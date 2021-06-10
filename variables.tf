@@ -1,8 +1,9 @@
+/*
 variable "AWS_ACCESS_KEY" {}
 
 variable "AWS_SECRET_KEY" {}
 
-
+*/
 variable "AWS_REGION" {
   default = "us-east-1"
 }
@@ -60,9 +61,9 @@ variable "DATABASE_USER" {
   type = string
   default ="wordpressuser"
 }
-
+/*
 variable "DATABASE_PASSWORD" {}
-
+*/
 variable "PATH_TO_PUBLIC_KEY" {
   default = "terra-key.pub"
 }

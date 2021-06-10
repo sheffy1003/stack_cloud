@@ -3,4 +3,5 @@
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
-wp-config.php       
+wp-config.php
+creds.yml   

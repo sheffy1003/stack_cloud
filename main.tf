@@ -133,6 +133,7 @@ resource "aws_key_pair" "key" {
   public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
+
 /*
 data "aws_secretsmanager_secret_version" "creds1" {
   # Fill in the name you gave to your secret
